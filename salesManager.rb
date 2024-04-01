@@ -6,7 +6,7 @@ module SalesManager
     def self.generate_products
       products = []
       5.times do |i|
-        products << Product.new(i + 1, "Product #{i + 1}", rand(1.0..100.0))
+        products << Product.new(i + 1, "Product #{i + 1}", rand(1.0..100.0).round(2))
       end
       products
     end
