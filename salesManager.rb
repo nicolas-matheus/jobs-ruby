@@ -20,4 +20,18 @@ module SalesManager
       total_price = sale_items.sum(&:price)
       Sale.new(1, total_products, total_price)
     end
+
+    def self.response_as_json(sale, sale_items)
+      items = sale_items.map do |sale_item|
+        { id: sale_item.id, product_id: sale_item.product_id, price: sale_item.price }
+      end
+      {
+        sale: {
+          id: sale.id,
+          total_products: sale.total_products,
+          total_price: sale.total_price,
+          items: items
+        }
+      }
+    end
 end
