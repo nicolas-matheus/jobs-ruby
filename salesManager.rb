@@ -4,11 +4,7 @@ require_relative 'sale.rb'
 
 module SalesManager
     def self.generate_products
-      products = []
-      5.times do |i|
-        products << Product.new(i + 1, "Product #{i + 1}", rand(1.0..100.0).round(2))
-      end
-      products
+      [::Product.new(1,"Laranja",2.5), ::Product.new(2,"Pera",2.0), ::Product.new(3,"Maça",2.75), ::Product.new(4,"Banana",3.0)]
     end
   
     def self.create_sales_item(product)
